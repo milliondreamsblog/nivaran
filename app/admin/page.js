@@ -25,15 +25,15 @@ export default function AdminPage() {
       <div className="max-w-2xl mx-auto">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h1 className="font-display font-bold text-2xl">Ops — keeping the agent honest</h1>
+            <h1 className="font-display font-bold text-2xl text-ink">Ops — keeping the agent honest</h1>
             <p className="text-sm text-inksoft mt-1 max-w-lg">
               Government rules change constantly. Watchers monitor gazette notifications and circulars, draft knowledge
               updates, and a human approves before the agent's brain changes. The agent never quotes last year's rules.
             </p>
           </div>
-          <div className="text-right">
+          <div className="text-right shrink-0">
             <span className="text-xs text-mutedink uppercase tracking-wider font-semibold">Knowledge base</span>
-            <p className="font-mono font-semibold text-leaf">v{kb.version}</p>
+            <p className="font-mono font-semibold text-forest">v{kb.version}</p>
           </div>
         </div>
 
@@ -41,11 +41,11 @@ export default function AdminPage() {
           {WATCHER_EVENTS.map((w) => {
             const applied = kb.applied.includes(w.id);
             return (
-              <div key={w.id} className="bg-card border border-line rounded-xl p-4">
+              <div key={w.id} className="bg-card border border-line rounded-2xl shadow-card p-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <span
                     className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                      applied ? "bg-leafwash text-leaf" : "bg-marigoldwash text-marigolddeep"
+                      applied ? "bg-forestwash text-forest" : "bg-saffronwash text-saffrondeep"
                     }`}
                   >
                     {applied ? "Applied" : "Pending review"}
@@ -55,7 +55,7 @@ export default function AdminPage() {
                 </div>
                 <p className="font-semibold text-ink mt-2">{w.title}</p>
                 <p className="text-sm text-inksoft mt-1">{w.detail}</p>
-                <div className="border border-line rounded-lg bg-paper p-3 mt-3">
+                <div className="border border-line rounded-xl bg-paper p-3 mt-3">
                   <p className="text-xs font-semibold uppercase tracking-wider text-mutedink">Proposed update</p>
                   <p className="text-sm text-inksoft mt-1">{w.proposal}</p>
                 </div>
@@ -63,11 +63,11 @@ export default function AdminPage() {
                   <div className="flex gap-2 mt-3">
                     <button
                       onClick={() => approve(w.id)}
-                      className="bg-leaf text-white text-sm font-semibold rounded-md px-4 py-2"
+                      className="btn-tactile bg-forest hover:bg-forestdeep text-white text-sm font-semibold rounded-lg px-4 py-2"
                     >
                       Approve &amp; sync
                     </button>
-                    <button className="border border-line rounded-md px-4 py-2 text-sm text-inksoft hover:bg-mist">
+                    <button className="btn-tactile border border-line rounded-lg px-4 py-2 text-sm text-inksoft hover:bg-mist">
                       Hold
                     </button>
                   </div>
@@ -84,7 +84,7 @@ export default function AdminPage() {
       </div>
 
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-card border border-line text-ink text-sm rounded-lg px-4 py-2.5 rise z-50 shadow-2xl">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-card border border-line text-ink text-sm rounded-xl px-4 py-2.5 rise z-50 shadow-elevated">
           {toast}
         </div>
       )}
