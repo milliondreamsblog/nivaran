@@ -13,10 +13,10 @@ export default function FilePage() {
     return (
       <Shell>
         <div className="max-w-md mx-auto text-center py-16 rise">
-          <div className="pop-check mx-auto w-16 h-16 rounded-full bg-leafwash text-leaf flex items-center justify-center text-3xl font-bold">
+          <div className="success-ripple pop-check mx-auto w-16 h-16 rounded-full bg-forestwash text-forest flex items-center justify-center text-3xl font-bold">
             ✓
           </div>
-          <h1 className="font-display font-bold text-2xl mt-4">Grievance filed</h1>
+          <h1 className="font-display font-bold text-2xl mt-4 text-ink">Grievance filed</h1>
           <p className="text-inksoft mt-2">
             Registration ID <span className="font-mono font-semibold text-ink">{filed.regId}</span>
           </p>
@@ -27,13 +27,13 @@ export default function FilePage() {
           <div className="flex gap-3 justify-center mt-6">
             <button
               onClick={() => router.push(`/grievance/${filed.id}`)}
-              className="bg-marigold hover:bg-marigolddeep text-white font-semibold rounded-md px-4 py-2"
+              className="btn-tactile bg-forest hover:bg-forestdeep text-white font-semibold rounded-lg px-4 py-2"
             >
               Track it
             </button>
             <button
               onClick={() => router.push("/dashboard")}
-              className="border border-line rounded-md px-4 py-2 text-inksoft hover:bg-mist"
+              className="btn-tactile border border-line rounded-lg px-4 py-2 text-inksoft hover:bg-mist"
             >
               Dashboard
             </button>

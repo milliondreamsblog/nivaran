@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { History, Minimize2, Volume2, VolumeX, Mic, SendHorizontal } from "lucide-react";
+import { History, Minimize2, Volume2, VolumeX, Mic, SendHorizontal, Loader2 } from "lucide-react";
 import { addGrievance, newRegId, seedOnce } from "../lib/store";
+import RadialProgress from "./RadialProgress";
 
 const SUGGESTED = [
   "Mere mohalle mein 2 hafte se paani nahi aa raha, municipal office complaint nahi le raha",
@@ -13,11 +14,11 @@ const SUGGESTED = [
 
 const today = () => new Date().toISOString().slice(0, 10);
 
-// Nivaran mark: the agent's avatar, standing where the reference design keeps its logo.
+// Nivaran mark: the agent's avatar, standing where the navbar keeps its logo.
 export function Mark({ size = 14 }) {
   return (
     <span
-      className="inline-flex items-center justify-center rounded-full bg-marigold text-white font-display font-bold select-none"
+      className="inline-flex items-center justify-center rounded-full bg-forest text-white font-display font-bold select-none"
       style={{ width: size, height: size, fontSize: size * 0.55, lineHeight: 1 }}
       aria-hidden="true"
     >
@@ -26,9 +27,9 @@ export function Mark({ size = 14 }) {
   );
 }
 
-// The glass agent panel from the reference design. variant="page" (inside the
-// portal, with history/minimize nav) or "popup" (floating widget with a close
-// button and its own inline success state).
+// The agent panel: variant="page" (inside the portal, with history/minimize
+// nav) or "popup" (floating widget with a close button and its own inline
+// success state).
 export default function AgentPanel({ variant = "page", onClose, onFiled, onNavigate }) {
   const [messages, setMessages] = useState([]); // {role, content} — assistant content is raw JSON
   const [display, setDisplay] = useState([]); // {role, text} — what the chat pane shows
@@ -196,19 +197,19 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
   const ready = agent && agent.is_cpgrams_eligible && agent.draft_text && !agent.needs_clarification;
 
   const iconBtn =
-    "flex items-center justify-center w-7 h-7 rounded-full bg-white/10 border border-white/10 text-white/80 hover:bg-white/20 transition-colors";
+    "btn-tactile flex items-center justify-center w-7 h-7 rounded-full bg-mist border border-line text-inksoft hover:bg-forestwash hover:text-forest transition-colors";
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-[rgba(28,28,32,0.86)] backdrop-blur-2xl shadow-2xl p-4 sm:p-5 flex flex-col gap-4 h-full min-h-0">
+    <div className="rounded-3xl border border-line bg-card shadow-elevated p-4 sm:p-5 flex flex-col gap-4 h-full min-h-0">
       {/* panel header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1.5">
           <span className={`rounded-full ${speakingNow ? "speaking" : ""}`}>
             <Mark size={18} />
           </span>
-          <span className="text-[14px] font-medium text-white/95">Nivaran</span>
+          <span className="text-[14px] font-semibold text-ink">Nivaran</span>
           {source && (
-            <span className="ml-2 text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/50">
+            <span className="ml-2 text-[10px] px-2 py-0.5 rounded-full bg-mist text-mutedink">
               {source === "llm" ? "live model" : "offline mode"}
             </span>
           )}
@@ -217,7 +218,7 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
           <button
             onClick={() => setLang(lang === "en-IN" ? "hi-IN" : "en-IN")}
             title="Voice recognition language"
-            className="h-7 px-2.5 rounded-full bg-white/10 border border-white/10 text-[11px] font-medium text-white/80 hover:bg-white/20 transition-colors"
+            className="h-7 px-2.5 rounded-full bg-mist border border-line text-[11px] font-medium text-inksoft hover:bg-forestwash hover:text-forest transition-colors"
           >
             {lang === "en-IN" ? "EN" : "हि"}
           </button>
@@ -247,25 +248,25 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
       {filed ? (
         /* popup inline success */
         <div className="flex-1 flex flex-col items-center justify-center text-center gap-3 rise">
-          <div className="pop-check w-14 h-14 rounded-full bg-leafwash text-leaf flex items-center justify-center text-2xl font-bold">
+          <div className="success-ripple pop-check w-14 h-14 rounded-full bg-forestwash text-forest flex items-center justify-center text-2xl font-bold">
             ✓
           </div>
-          <p className="text-white/95 font-display font-bold text-xl">Grievance filed</p>
-          <p className="text-white/70 text-sm">
-            Registration ID <span className="font-mono font-semibold text-white/95">{filed.regId}</span>
+          <p className="text-ink font-display font-bold text-xl">Grievance filed</p>
+          <p className="text-inksoft text-sm">
+            Registration ID <span className="font-mono font-semibold text-ink">{filed.regId}</span>
             <br />
             Routed to {filed.department}. The 21-day clock is running.
           </p>
           <div className="flex gap-2 mt-1">
             <Link
               href="/login"
-              className="bg-marigold hover:bg-marigolddeep text-white font-semibold rounded-lg px-4 py-2 text-sm transition-colors"
+              className="btn-tactile bg-forest hover:bg-forestdeep text-white font-semibold rounded-lg px-4 py-2 text-sm transition-colors"
             >
               Track it in the portal
             </Link>
             <button
               onClick={resetConversation}
-              className="border border-white/15 rounded-lg px-4 py-2 text-sm text-white/70 hover:bg-white/10"
+              className="btn-tactile border border-line rounded-lg px-4 py-2 text-sm text-inksoft hover:bg-mist"
             >
               File another
             </button>
@@ -279,7 +280,7 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
               {display.length === 0 && (
                 <div className="flex flex-col gap-2">
                   <Mark size={14} />
-                  <p className="text-[14px] leading-[1.5] text-white/85">
+                  <p className="text-[14px] leading-[1.5] text-inksoft">
                     Tell Nivaran what happened — Hindi, English, ya mixed. No forms, no category trees. Try one of
                     these, or tap the mic:
                   </p>
@@ -288,7 +289,7 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
                       <button
                         key={s}
                         onClick={() => send(s)}
-                        className="text-left text-[12.5px] leading-[1.45] text-white/85 bg-white/8 border border-white/10 rounded-xl px-3 py-2 hover:bg-white/15 transition-colors"
+                        className="text-left text-[12.5px] leading-[1.45] text-inksoft bg-mist border border-line rounded-xl px-3 py-2 hover:bg-forestwash hover:border-forest/30 transition-colors"
                       >
                         "{s}"
                       </button>
@@ -299,14 +300,14 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
               {display.map((m, i) =>
                 m.role === "user" ? (
                   <div key={i} className="flex justify-end rise">
-                    <div className="max-w-[92%] backdrop-blur-xl bg-white/12 border border-white/10 px-3 py-2 rounded-[18px] rounded-br-[4px] text-[14px] leading-[1.4] text-white/95">
+                    <div className="max-w-[92%] bg-forest text-white px-3 py-2 rounded-[18px] rounded-br-[4px] text-[14px] leading-[1.4]">
                       {m.text}
                     </div>
                   </div>
                 ) : (
                   <div key={i} className="flex flex-col gap-1.5 pb-1 rise">
                     <Mark size={14} />
-                    <p className="text-[14px] leading-[1.5] text-white/85">{m.text}</p>
+                    <p className="text-[14px] leading-[1.5] text-inksoft">{m.text}</p>
                   </div>
                 )
               )}
@@ -323,7 +324,7 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
                     <button
                       key={c}
                       onClick={() => send(c)}
-                      className="text-[12.5px] border border-white/25 text-white/90 rounded-full px-3 py-1.5 hover:bg-white/15 transition-colors"
+                      className="chip-tactile text-[12.5px] border border-forest/30 text-forest rounded-full px-3 py-1.5 hover:bg-forestwash transition-colors"
                     >
                       {c}
                     </button>
@@ -338,10 +339,10 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
               <button
                 onClick={toggleMic}
                 title={listening ? "Stop listening" : "Speak"}
-                className={`flex items-center justify-center w-9 h-9 rounded-full border transition-colors shrink-0 ${
+                className={`btn-tactile flex items-center justify-center w-9 h-9 rounded-full border transition-colors shrink-0 ${
                   listening
-                    ? "bg-[#ff5f57] border-[#ff5f57] text-white"
-                    : "bg-white/10 border-white/10 text-white/80 hover:bg-white/20"
+                    ? "mic-listening-pulse bg-alert border-alert text-white"
+                    : "bg-mist border-line text-inksoft hover:bg-forestwash hover:text-forest"
                 }`}
               >
                 <Mic size={15} />
@@ -351,52 +352,62 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && send(input)}
                 placeholder={listening ? "listening…" : "Describe your problem"}
-                className="flex-1 min-w-0 bg-white/8 border border-white/10 rounded-full px-3.5 py-2 text-[13.5px] text-white placeholder-white/35 focus:outline-none focus:border-marigold"
+                className="flex-1 min-w-0 bg-mist border border-line rounded-full px-3.5 py-2 text-[13.5px] text-ink placeholder-mutedink focus:outline-none focus:border-forest"
               />
               <button
                 onClick={() => send(input)}
                 disabled={busy}
                 title="Send"
-                className="flex items-center justify-center w-9 h-9 rounded-full bg-white text-[#1c1c1e] disabled:opacity-40 shrink-0"
+                className="btn-tactile flex items-center justify-center w-9 h-9 rounded-full bg-forest text-white disabled:opacity-40 shrink-0"
               >
-                <SendHorizontal size={15} />
+                {busy ? <Loader2 size={15} className="spin-loader" /> : <SendHorizontal size={15} />}
               </button>
             </div>
           </div>
 
           {/* embedded portal window */}
-          <div className="flex-1 min-h-[280px] rounded-xl overflow-hidden border border-white/10 bg-[#1c1c1e] flex flex-col">
-            <div className="h-8 shrink-0 bg-[#161618] border-b border-white/8 flex items-center px-3 gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-              <span className="flex-1 text-center text-[11px] text-white/40 truncate">
+          <div className="flex-1 min-h-[280px] rounded-xl overflow-hidden border border-line bg-paper flex flex-col">
+            <div className="h-8 shrink-0 bg-cream border-b border-line flex items-center px-3 gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-alert/70" />
+              <span className="w-2.5 h-2.5 rounded-full bg-saffron/70" />
+              <span className="w-2.5 h-2.5 rounded-full bg-forest/70" />
+              <span className="flex-1 text-center text-[11px] text-mutedink truncate">
                 pgportal.gov.in — grievance form · Nivaran is filling this for you
               </span>
             </div>
             <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
-              <DarkField label="Ministry" value={agent?.ministry} delay={0} />
-              <DarkField label="Department / Office" value={agent?.department} delay={180} />
-              <DarkField label="Grievance summary" value={agent?.summary} delay={360} />
+              <LightField label="Ministry" value={agent?.ministry} />
+              <LightField label="Department / Office" value={agent?.department} />
+              <LightField label="Grievance summary" value={agent?.summary} />
               <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/40">Location</span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-mutedink">Location</span>
                 <input
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="City / district (edit me)"
-                  className="bg-white/6 border border-white/10 rounded-lg px-3 py-2 text-[13.5px] text-white/90 placeholder-white/30 focus:outline-none focus:border-marigold"
+                  className="bg-card border border-line rounded-lg px-3 py-2 text-[13.5px] text-ink placeholder-mutedink focus:outline-none focus:border-forest"
                 />
               </div>
 
               {agent && agent.ministry && (
-                <div className="border border-white/10 rounded-lg p-3 bg-white/5 rise" style={{ animationDelay: "520ms" }}>
+                <div className="rise border border-line rounded-lg p-3 bg-card">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/40">Routing</span>
-                    <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#14532d]/50 text-[#86efac] font-semibold">
-                      {Math.round((agent.confidence || 0) * 100)}% confident
-                    </span>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-mutedink">Routing</span>
+                    <div className="ml-auto flex items-center gap-2">
+                      <RadialProgress
+                        value={agent.confidence || 0}
+                        size={30}
+                        strokeWidth={3}
+                        color={(agent.confidence || 0) >= 0.75 ? "#1e4d3a" : "#d97b2b"}
+                      >
+                        <span className="text-[9px] font-bold text-ink">
+                          {Math.round((agent.confidence || 0) * 100)}
+                        </span>
+                      </RadialProgress>
+                      <span className="text-[11px] text-mutedink font-medium">confident</span>
+                    </div>
                   </div>
-                  <ul className="mt-2 text-[13px] leading-relaxed text-white/70 list-disc pl-5">
+                  <ul className="mt-2 text-[13px] leading-relaxed text-inksoft list-disc pl-5">
                     {(agent.routing_reasons || []).map((r, i) => (
                       <li key={i}>{r}</li>
                     ))}
@@ -406,7 +417,7 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
                       {agent.priority_flags.map((f) => (
                         <span
                           key={f}
-                          className="text-[10.5px] px-2 py-0.5 rounded-full bg-[#7f1d1d]/50 text-[#fca5a5] font-medium"
+                          className="text-[10.5px] px-2 py-0.5 rounded-full bg-alertwash text-alert font-medium"
                         >
                           {f}
                         </span>
@@ -417,18 +428,18 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
               )}
 
               {agent && !agent.is_cpgrams_eligible && (
-                <div className="border border-marigold/50 rounded-lg p-3 bg-marigold/15 text-[13px] text-white/90 rise">
+                <div className="rise border border-saffron/40 rounded-lg p-3 bg-saffronwash text-[13px] text-ink">
                   <p className="font-semibold">This one isn't a CPGRAMS matter</p>
-                  <p className="mt-1 text-white/70">{agent.excluded_reason}</p>
+                  <p className="mt-1 text-inksoft">{agent.excluded_reason}</p>
                 </div>
               )}
 
               {agent?.draft_text && (
-                <div className="flex flex-col gap-1 rise rounded-lg" style={{ animationDelay: "680ms" }}>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/40">
+                <div className="flex flex-col gap-1 rise rounded-lg">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-mutedink">
                     Drafted grievance (yours to edit)
                   </span>
-                  <pre className="whitespace-pre-wrap text-[13px] leading-relaxed border border-white/10 rounded-lg p-3 bg-white/6 font-body text-white/80 max-h-52 overflow-y-auto">
+                  <pre className="whitespace-pre-wrap text-[13px] leading-relaxed border border-line rounded-lg p-3 bg-card font-body text-inksoft max-h-52 overflow-y-auto">
                     {draft}
                   </pre>
                 </div>
@@ -437,8 +448,7 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
               {ready && (
                 <button
                   onClick={() => setShowReview(true)}
-                  style={{ animationDelay: "900ms" }}
-                  className="pulse-cta rise bg-marigold hover:bg-marigolddeep text-white font-semibold rounded-lg py-2.5 mt-1 transition-colors"
+                  className="btn-tactile pulse-cta rise bg-forest hover:bg-forestdeep text-white font-semibold rounded-lg py-2.5 mt-1 transition-colors"
                 >
                   Review &amp; file
                 </button>
@@ -450,28 +460,28 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
 
       {/* review modal */}
       {showReview && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-[60]">
-          <div className="bg-[#1c1c1e] rounded-2xl border border-white/10 max-w-lg w-full p-5 rise">
-            <h3 className="font-display font-bold text-lg text-white/95">Read it before it goes</h3>
-            <p className="text-[13px] text-white/60 mt-1">
+        <div className="modal-backdrop-in fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-[60]">
+          <div className="modal-in bg-card rounded-2xl border border-line shadow-elevated max-w-lg w-full p-5">
+            <h3 className="font-display font-bold text-lg text-ink">Read it before it goes</h3>
+            <p className="text-[13px] text-inksoft mt-1">
               Nothing files without your sign-off. Edit freely — this is your complaint, in your name.
             </p>
             <textarea
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               rows={12}
-              className="w-full bg-white/6 border border-white/10 rounded-lg p-3 mt-3 text-[13px] text-white/90 focus:outline-none focus:border-marigold"
+              className="w-full bg-paper border border-line rounded-lg p-3 mt-3 text-[13px] text-ink focus:outline-none focus:border-forest"
             />
             <div className="flex gap-3 justify-end mt-4">
               <button
                 onClick={() => setShowReview(false)}
-                className="border border-white/15 rounded-lg px-4 py-2 text-white/70 hover:bg-white/10"
+                className="btn-tactile border border-line rounded-lg px-4 py-2 text-inksoft hover:bg-mist"
               >
                 Keep editing
               </button>
               <button
                 onClick={fileIt}
-                className="bg-marigold hover:bg-marigolddeep text-white font-semibold rounded-lg px-4 py-2"
+                className="btn-tactile bg-forest hover:bg-forestdeep text-white font-semibold rounded-lg px-4 py-2"
               >
                 File grievance
               </button>
@@ -483,15 +493,14 @@ export default function AgentPanel({ variant = "page", onClose, onFiled, onNavig
   );
 }
 
-function DarkField({ label, value, delay = 0 }) {
+function LightField({ label, value }) {
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/40">{label}</span>
+      <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-mutedink">{label}</span>
       <div
         key={value || "empty"}
-        style={value ? { animationDelay: `${delay}ms` } : undefined}
-        className={`border border-white/10 rounded-lg px-3 py-2 text-[13.5px] min-h-[38px] ${
-          value ? "rise field-filled-dark text-white/90 font-medium bg-white/6" : "bg-white/4 text-white/30 italic"
+        className={`border border-line rounded-lg px-3 py-2 text-[13.5px] min-h-[38px] ${
+          value ? "rise field-filled text-ink font-medium bg-card" : "bg-mist text-mutedink italic"
         }`}
       >
         {value || "fills in as you talk"}
