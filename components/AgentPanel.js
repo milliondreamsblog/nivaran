@@ -30,11 +30,12 @@ export function Mark({ size = 14 }) {
 // The agent panel: variant="page" (inside the portal, with history/minimize
 // nav) or "popup" (floating widget with a close button and its own inline
 // success state).
-export default function AgentPanel({ variant = "page", onClose, onFiled, onNavigate }) {
+// initialInput lets the landing hero hand its typed sentence to the popup.
+export default function AgentPanel({ variant = "page", onClose, onFiled, onNavigate, initialInput = "" }) {
   const [messages, setMessages] = useState([]); // {role, content} — assistant content is raw JSON
   const [display, setDisplay] = useState([]); // {role, text} — what the chat pane shows
   const [agent, setAgent] = useState(null); // last parsed agent JSON
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(initialInput);
   const [busy, setBusy] = useState(false);
   const [source, setSource] = useState(null);
   const [lang, setLang] = useState("en-IN");
