@@ -1,0 +1,38 @@
+{
+  "8965f8d1a28a7040c20e447f977a156fda87bf29845c383b6e4164a9b6746205": {
+    "file": "relieving-letter.png",
+    "mime": "image/png",
+    "extraction": {
+      "doc_type": "relieving_letter",
+      "employer": "Meridian Textiles Pvt Ltd",
+      "dates": [
+        {
+          "label": "date of exit",
+          "value_iso": "2025-03-31",
+          "text": "31 March 2025"
+        }
+      ],
+      "claim_status": null,
+      "rejection_reason": null,
+      "confidence": 1
+    }
+  },
+  "ee5bf2e654dd17c9cdaee6b39c9b55deaa45de77a98c435ebb843b4aef88eff2": {
+    "file": "claim-rejection.png",
+    "mime": "image/png",
+    "extraction": {
+      "doc_type": "claim_rejection",
+      "employer": "Meridian Textiles Pvt Ltd",
+      "dates": [
+        {
+          "label": "date of exit",
+          "value_iso": "2025-04-15",
+          "text": "15 April 2025"
+        }
+      ],
+      "claim_status": "rejected",
+      "rejection_reason": "Date of exit mismatch",
+      "confidence": 1
+    }
+  }
+}
