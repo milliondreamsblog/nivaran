@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "Nivaran",
+    "slug": "nivaran",
+    "version": "0.1.0",
+    "scheme": "nivaran",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "android": {
+      "package": "in.nivaran.prototype"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "name": "Nivaran — your voice, your way"
+    },
+    "experiments": {
+      "baseUrl": "/app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Use your microphone to describe a sample grievance.",
+          "enableBackgroundRecording": false,
+          "enableBackgroundPlayback": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Choose a sample document for your draft.",
+          "cameraPermission": "Photograph a sample document."
+        }
+      ],
+      "expo-asset",
+      "expo-status-bar",
+      [
+        "react-native-audio-api",
+        {
+          "iosBackgroundMode": false,
+          "androidPermissions": [],
+          "androidForegroundService": false,
+          "androidFSTypes": [],
+          "disableFFmpeg": true,
+          "disableStaticExternalLibs": false
+        }
+      ]
+    ]
+  }
+}
