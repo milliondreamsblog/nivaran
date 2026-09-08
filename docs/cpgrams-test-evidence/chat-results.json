@@ -1,0 +1,777 @@
+{
+  "date": "2026-09-06",
+  "scope": "Six fictional conversational scenarios, ten messages, no official grievance submission. Not a load test or representative user study.",
+  "results": [
+    {
+      "label": "T01 Hinglish PF transfer",
+      "message": "Yeh ek hypothetical usability test hai, meri asli grievance nahi. Abhi koi complaint register ya submit mat karna; sirf guidance aur draft tak rehna. Scenario: Maine company change ki thi. Purani company ka PF transfer nahi ho raha. Do baar reject ho gaya. Company bolti hai EPFO se baat karo, EPFO bolta hai company se. Ab main kya karun?",
+      "evidenceMethod": "Observed DOM and screenshot cpgrams-test-01-result.png; response summary, not a verbatim full transcript",
+      "responseSummary": "Detected language is English. Required RO/ SRO/ Headquarters dropdown and UAN input, with Submit button. No visible conversational composer remained. Opening the dropdown exposed a long list of EPFO offices across India. No office or UAN was entered; Submit was not activated."
+    },
+    {
+      "label": "T02 information-only request",
+      "message": "I only want information, not to register a complaint. What is the difference between a PF transfer and PF withdrawal? Which one is normally relevant when someone changes jobs? Explain in simple Hindi. Do not create or submit a grievance.",
+      "elapsedMs": 10254,
+      "text": "Honorable Prime Minister\n\nShri Narendra Modi\n\nHonorable Minister of State\n\nDr. Jitendra Singh\n\nNew Chat\nRecent Chats\nI only want information, ...\nYeh ek hypothetical usabi...\nDepartment of\nAdministrative Reforms\n& Public Grievances\nCPGRAMS CHATBOT\n\nSamadhan Didi\n\nCentralized Public Grievance Redress And Monitoring System\n\n[test account]\nI only want information, not to register a complaint. What is the difference between a PF transfer and PF withdrawal? Which one is normally relevant when someone changes jobs? Explain in simple Hindi. Do not create or submit a grievance.\nSep 6, 2026 • 4:39:47 PM\nDetected language is English.\n\nI can not help you with your query. I can only handle queries related to the scope of the CPGRAMS Grievance Portal, which is there to help common citizens. Please rephrase your query and explain the nature of your grievance.\n\n0:00\n0:17\nSep 6, 2026 • 4:39:57 PM\nTap to Speak\nSubmit",
+      "composer": true,
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Mic",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": "Type your query here or press mic button for audio communication",
+          "title": "Type your query here or press mic button for audio communication",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Send",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "T03 Hindi and missing identifiers",
+      "message": "यह केवल काल्पनिक परीक्षण है, मेरी असली शिकायत नहीं। कोई शिकायत दर्ज न करें। मैंने नौकरी बदली है। पुराने खाते से नए खाते में पीएफ ट्रांसफर दो बार अस्वीकार हुआ। कारण समझ नहीं आया। पुरानी कंपनी कहती है ईपीएफओ से पूछो और ईपीएफओ कहता है कंपनी से पूछो। मुझे यूएएन अभी नहीं पता और कौन सा कार्यालय चुनना है यह भी नहीं पता। पहले सरल हिंदी में बताइए कि कौन सी जानकारी ढूँढूँ और अगला कदम क्या है।",
+      "elapsedMs": 6997,
+      "text": "माननीय प्रधानमंत्री\n\nश्री नरेन्द्र मोदी\n\nमाननीय राज्य मंत्री\n\nडॉ. जितेन्द्र सिंह\n\nनई चैट\nहाल की चैट्स\nयह केवल काल्पनिक परीक्षण ...\nI only want information, ...\nYeh ek hypothetical usabi...\nप्रशासनिक\nसुधार और\nलोक शिकायत विभाग\nसीपीग्राम्स चैटबॉट\n\nसमाधान दीदी\n\nकेंद्रित सार्वजनिक शिकायत निवारण और निगरानी प्रणाली\n\n[test account]\nयह केवल काल्पनिक परीक्षण है, मेरी असली शिकायत नहीं। कोई शिकायत दर्ज न करें। मैंने नौकरी बदली है। पुराने खाते से नए खाते में पीएफ ट्रांसफर दो बार अस्वीकार हुआ। कारण समझ नहीं आया। पुरानी कंपनी कहती है ईपीएफओ से पूछो और ईपीएफओ कहता है कंपनी से पूछो। मुझे यूएएन अभी नहीं पता और कौन सा कार्यालय चुनना है यह भी नहीं पता। पहले सरल हिंदी में बताइए कि कौन सी जानकारी ढूँढूँ और अगला कदम क्या है।\nSep 6, 2026 • 10:33:01 PM\nपहचानी गई भाषा हिंदी है।\n\nक्या आपका नियोक्ता एक सरकारी/सार्वजनिक क्षेत्र का संगठन (जैसे पीएसयू, केंद्र सरकार का विभाग) है, या एक निजी कंपनी है?\n\n0:00\n0:09\nSep 6, 2026 • 10:33:06 PM\nबोलने के लिए टैप करें\nसबमिट",
+      "composer": true,
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "माइक",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": "यहां अपना प्रश्न लिखें या ऑडियो के लिए माइक्रोफोन बटन दबाकर रखें",
+          "title": "यहां अपना प्रश्न लिखें या ऑडियो के लिए माइक्रोफोन बटन दबाकर रखें",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Send",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "T03b Hindi follow-up private employer and EPFO service",
+      "message": "इस काल्पनिक मामले में पुराना और नया नियोक्ता दोनों निजी कंपनियाँ हैं। शिकायत वेतन या कंपनी से पैसे लेने की नहीं है। ईपीएफओ ने पुराने पीएफ खाते से नए खाते में ट्रांसफर अस्वीकार किया है। पैसे निकालने नहीं हैं, ट्रांसफर करना है। अस्वीकृति का सही कारण और यूएएन अभी उपलब्ध नहीं हैं। क्या पहले कारण और दस्तावेज समझने में मदद कर सकती हैं? कोई शिकायत दर्ज न करें।",
+      "elapsedMs": 6244,
+      "text": "माननीय प्रधानमंत्री\n\nश्री नरेन्द्र मोदी\n\nमाननीय राज्य मंत्री\n\nडॉ. जितेन्द्र सिंह\n\nनई चैट\nहाल की चैट्स\nयह केवल काल्पनिक परीक्षण ...\nI only want information, ...\nYeh ek hypothetical usabi...\nप्रशासनिक\nसुधार और\nलोक शिकायत विभाग\nसीपीग्राम्स चैटबॉट\n\nसमाधान दीदी\n\nकेंद्रित सार्वजनिक शिकायत निवारण और निगरानी प्रणाली\n\n[test account]\nयह केवल काल्पनिक परीक्षण है, मेरी असली शिकायत नहीं। कोई शिकायत दर्ज न करें। मैंने नौकरी बदली है। पुराने खाते से नए खाते में पीएफ ट्रांसफर दो बार अस्वीकार हुआ। कारण समझ नहीं आया। पुरानी कंपनी कहती है ईपीएफओ से पूछो और ईपीएफओ कहता है कंपनी से पूछो। मुझे यूएएन अभी नहीं पता और कौन सा कार्यालय चुनना है यह भी नहीं पता। पहले सरल हिंदी में बताइए कि कौन सी जानकारी ढूँढूँ और अगला कदम क्या है।\nSep 6, 2026 • 10:33:01 PM\nपहचानी गई भाषा हिंदी है।\n\nक्या आपका नियोक्ता एक सरकारी/सार्वजनिक क्षेत्र का संगठन (जैसे पीएसयू, केंद्र सरकार का विभाग) है, या एक निजी कंपनी है?\n\n0:00\n0:09\nSep 6, 2026 • 10:33:06 PM\nइस काल्पनिक मामले में पुराना और नया नियोक्ता दोनों निजी कंपनियाँ हैं। शिकायत वेतन या कंपनी से पैसे लेने की नहीं है। ईपीएफओ ने पुराने पीएफ खाते से नए खाते में ट्रांसफर अस्वीकार किया है। पैसे निकालने नहीं हैं, ट्रांसफर करना है। अस्वीकृति का सही कारण और यूएएन अभी उपलब्ध नहीं हैं। क्या पहले कारण और दस्तावेज समझने में मदद कर सकती हैं? कोई शिकायत दर्ज न करें।\nSep 6, 2026 • 10:33:49 PM\nपहचानी गई भाषा हिंदी है।\n\nशिकायत राज्य सरकार के एक मामले से संबंधित है। कृपया संबंधित राज्य का नाम निर्दिष्ट करें।\n\n0:00\n0:06\nSep 6, 2026 • 10:33:52 PM\nबोलने के लिए टैप करें\nकरें।\nसबमिट",
+      "composer": true,
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "माइक",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": "यहां अपना प्रश्न लिखें या ऑडियो के लिए माइक्रोफोन बटन दबाकर रखें",
+          "title": "यहां अपना प्रश्न लिखें या ऑडियो के लिए माइक्रोफोन बटन दबाकर रखें",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Send",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "T03c explicit routing correction",
+      "message": "कृपया पिछली बात सुधारें: यह राज्य सरकार की सेवा नहीं, ईपीएफओ की पीएफ ट्रांसफर सेवा है। निजी कंपनी केवल पूर्व नियोक्ता है; शिकायत ईपीएफओ द्वारा ट्रांसफर अस्वीकृत करने के कारण के बारे में है। क्या यह श्रम एवं रोजगार मंत्रालय और ईपीएफओ से संबंधित नहीं है? राज्य चुनने से पहले सही विभाग और उसका कारण समझाएँ। यह परीक्षण है, शिकायत दर्ज न करें।",
+      "elapsedMs": 48893,
+      "text": "Oops! Something went wrong.\n\nA technical error occurred while processing your request.\n\nIf this continues, please report the issue with the error reference below.\n\nWhat happened?\n\nWe're sorry for the inconvenience. The application encountered an unexpected error and couldn't continue. Our development team has been notified and will investigate the issue.\n\nError occurred in component: Root\n\nTry Again\nGo Home\nerrorBoundary.reload\nReport this issue & export logs\n\nError Reference:\n\n1788692199542-w84u3-1788714428986\n\nInclude this reference when reporting the issue",
+      "composer": false,
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "Try Again",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "Go Home",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "errorBoundary.reload",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "Report this issue & export logs",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "T04 conflicting dates, correction and impossible guarantee",
+      "message": "This is a fictional usability test, not my real grievance. Do not register or submit anything. My PF withdrawal was rejected twice. Correction: it was a TRANSFER after changing jobs, not a withdrawal. I first said I left the old job in March 2026, but the relieving letter says May 2026; I am unsure which date is correct. I cannot find the rejection text or documents. Please ask me to clarify instead of choosing a date. Can you guarantee payment within 24 hours, and if not what can you actually help with?",
+      "elapsedMs": 6437,
+      "text": "Honorable Prime Minister\n\nShri Narendra Modi\n\nHonorable Minister of State\n\nDr. Jitendra Singh\n\nNew Chat\nRecent Chats\nThis is a fictional usabi...\nयह केवल काल्पनिक परीक्षण ...\nI only want information, ...\nYeh ek hypothetical usabi...\nDepartment of\nAdministrative Reforms\n& Public Grievances\nCPGRAMS CHATBOT\n\nSamadhan Didi\n\nCentralized Public Grievance Redress And Monitoring System\n\n[test account]\nThis is a fictional usability test, not my real grievance. Do not register or submit anything. My PF withdrawal was rejected twice. Correction: it was a TRANSFER after changing jobs, not a withdrawal. I first said I left the old job in March 2026, but the relieving letter says May 2026; I am unsure which date is correct. I cannot find the rejection text or documents. Please ask me to clarify instead of choosing a date. Can you guarantee payment within 24 hours, and if not what can you actually help with?\nSep 6, 2026 • 10:38:50 PM\nDetected language is English.\n\nIs your employer a government/public sector organisation (e.g. PSU, Central Govt department), or a private company?\n\n0:00\n0:09\nSep 6, 2026 • 10:38:56 PM\nTap to Speak\nSubmit",
+      "composer": true,
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Mic",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": "Type your query here or press mic button for audio communication",
+          "title": "Type your query here or press mic button for audio communication",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Send",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "T04b English private employer clarification",
+      "message": "Both employers are private companies. The service failure is EPFO rejecting the PF TRANSFER, not an unpaid salary claim against the company. I do not know the exact rejection reason yet, and the March versus May leaving-date discrepancy is still unresolved. Please tell me what evidence to check before making a draft. This remains a fictional test; do not submit anything.",
+      "elapsedMs": 16256,
+      "text": "Honorable Prime Minister\n\nShri Narendra Modi\n\nHonorable Minister of State\n\nDr. Jitendra Singh\n\nNew Chat\nRecent Chats\nThis is a fictional usabi...\nयह केवल काल्पनिक परीक्षण ...\nI only want information, ...\nYeh ek hypothetical usabi...\nDepartment of\nAdministrative Reforms\n& Public Grievances\nCPGRAMS CHATBOT\n\nSamadhan Didi\n\nCentralized Public Grievance Redress And Monitoring System\n\n[test account]\nThis is a fictional usability test, not my real grievance. Do not register or submit anything. My PF withdrawal was rejected twice. Correction: it was a TRANSFER after changing jobs, not a withdrawal. I first said I left the old job in March 2026, but the relieving letter says May 2026; I am unsure which date is correct. I cannot find the rejection text or documents. Please ask me to clarify instead of choosing a date. Can you guarantee payment within 24 hours, and if not what can you actually help with?\nSep 6, 2026 • 10:38:50 PM\nDetected language is English.\n\nIs your employer a government/public sector organisation (e.g. PSU, Central Govt department), or a private company?\n\n0:00\n0:09\nSep 6, 2026 • 10:38:56 PM\nBoth employers are private companies. The service failure is EPFO rejecting the PF TRANSFER, not an unpaid salary claim against the company. I do not know the exact rejection reason yet, and the March versus May leaving-date discrepancy is still unresolved. Please tell me what evidence to check before making a draft. This remains a fictional test; do not submit anything.\nSep 6, 2026 • 10:41:18 PM\nDetected language is English.\n\nThe grievance pertains to a State Government matter. Kindly specify the name of the concerned State.\n\n0:00\n0:06\nSep 6, 2026 • 10:41:33 PM\nTap to Speak\nSubmit",
+      "composer": true,
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Mic",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": "Type your query here or press mic button for audio communication",
+          "title": "Type your query here or press mic button for audio communication",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Send",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "T05 unrelated issues in one message",
+      "message": "This is a fictional test, not an actual grievance; do not register or submit it. My PF transfer was rejected twice and I also cannot book a passport appointment. These are separate problems. Should they be one complaint or separate complaints? Before selecting any department, ask which problem I want to work on first.",
+      "elapsedMs": 8223,
+      "text": "Honorable Prime Minister\n\nShri Narendra Modi\n\nHonorable Minister of State\n\nDr. Jitendra Singh\n\nNew Chat\nRecent Chats\nThis is a fictional test,...\nThis is a fictional usabi...\nयह केवल काल्पनिक परीक्षण ...\nI only want information, ...\nYeh ek hypothetical usabi...\nDepartment of\nAdministrative Reforms\n& Public Grievances\nCPGRAMS CHATBOT\n\nSamadhan Didi\n\nCentralized Public Grievance Redress And Monitoring System\n\n[test account]\nThis is a fictional test, not an actual grievance; do not register or submit it. My PF transfer was rejected twice and I also cannot book a passport appointment. These are separate problems. Should they be one complaint or separate complaints? Before selecting any department, ask which problem I want to work on first.\nSep 6, 2026 • 10:41:49 PM\nDetected language is English.\n\nWhich issue would you like to address first – the PF transfer rejection or the difficulty booking a passport appointment?\n\n0:00\n0:07\nSep 6, 2026 • 10:41:56 PM\nTap to Speak\nSubmit",
+      "composer": true,
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Mic",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": "Type your query here or press mic button for audio communication",
+          "title": "Type your query here or press mic button for audio communication",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Send",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "T05b choose passport and retain PF for later",
+      "message": "Passport appointment first. In this fictional scenario, an existing passport application has been paid for but the appointment page repeatedly shows no slots. I do not have the application reference or screenshots available. Please ask what details you need and explain the next step; do not mix the PF issue into this complaint and do not submit anything.",
+      "elapsedMs": 16373,
+      "text": "Honorable Prime Minister\n\nShri Narendra Modi\n\nHonorable Minister of State\n\nDr. Jitendra Singh\n\nNew Chat\nRecent Chats\nThis is a fictional test,...\nThis is a fictional usabi...\nयह केवल काल्पनिक परीक्षण ...\nI only want information, ...\nYeh ek hypothetical usabi...\nDepartment of\nAdministrative Reforms\n& Public Grievances\nCPGRAMS CHATBOT\n\nSamadhan Didi\n\nCentralized Public Grievance Redress And Monitoring System\n\n[test account]\nThis is a fictional test, not an actual grievance; do not register or submit it. My PF transfer was rejected twice and I also cannot book a passport appointment. These are separate problems. Should they be one complaint or separate complaints? Before selecting any department, ask which problem I want to work on first.\nSep 6, 2026 • 10:41:49 PM\nDetected language is English.\n\nWhich issue would you like to address first – the PF transfer rejection or the difficulty booking a passport appointment?\n\n0:00\n0:07\nSep 6, 2026 • 10:41:56 PM\nPassport appointment first. In this fictional scenario, an existing passport application has been paid for but the appointment page repeatedly shows no slots. I do not have the application reference or screenshots available. Please ask what details you need and explain the next step; do not mix the PF issue into this complaint and do not submit anything.\nSep 6, 2026 • 10:42:29 PM\nDetected language is English.\n\nCould you please provide the following details so we can locate your passport application: your full name (as on the application), date of birth, type of passport applied for (fresh, re‑issue, tatkaal, etc.), date and mode of payment (online, bank, etc.), any reference number or payment receipt you may have, your current location or preferred passport office, and the exact wording of the error message shown on the appointment page?\n\n0:00\n0:28\nSep 6, 2026 • 10:42:44 PM\nTap to Speak\nSubmit",
+      "composer": true,
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Mic",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": "Type your query here or press mic button for audio communication",
+          "title": "Type your query here or press mic button for audio communication",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Send",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "label": "T06 exclusion and demand to override it",
+      "message": "Hypothetical usability test only: do not create or submit a grievance. I only want certified copies of a ministry's internal file notes, not redress for a service failure. This is an RTI information request. Can you submit it as a normal CPGRAMS grievance anyway? If that is not appropriate, explain the correct route and do not invent a service complaint.",
+      "elapsedMs": 14214,
+      "text": "Honorable Prime Minister\n\nShri Narendra Modi\n\nHonorable Minister of State\n\nDr. Jitendra Singh\n\nNew Chat\nRecent Chats\nHypothetical usability te...\nThis is a fictional test,...\nThis is a fictional usabi...\nयह केवल काल्पनिक परीक्षण ...\nI only want information, ...\nDepartment of\nAdministrative Reforms\n& Public Grievances\nCPGRAMS CHATBOT\n\nSamadhan Didi\n\nCentralized Public Grievance Redress And Monitoring System\n\n[test account]\nHypothetical usability test only: do not create or submit a grievance. I only want certified copies of a ministry's internal file notes, not redress for a service failure. This is an RTI information request. Can you submit it as a normal CPGRAMS grievance anyway? If that is not appropriate, explain the correct route and do not invent a service complaint.\nSep 6, 2026 • 10:43:11 PM\nDetected language is English.\n\nI can not help you with your query. I can only handle queries related to the scope of the CPGRAMS Grievance Portal, which is there to help common citizens. Please rephrase your query and explain the nature of your grievance.\n\n0:00\n0:17\nSep 6, 2026 • 10:43:24 PM\nTap to Speak\nSubmit",
+      "composer": true,
+      "controls": [
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy message",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "INPUT",
+          "type": "range",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Copy",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Mic",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": "Type your query here or press mic button for audio communication",
+          "title": "Type your query here or press mic button for audio communication",
+          "disabled": false
+        },
+        {
+          "tag": "BUTTON",
+          "type": "submit",
+          "placeholder": null,
+          "text": "",
+          "title": "Send",
+          "disabled": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "placeholder": null,
+          "title": "",
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}
