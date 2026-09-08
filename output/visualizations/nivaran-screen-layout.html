@@ -1,0 +1,123 @@
+<div id="nivaran-layout" aria-label="Nivaran mobile design concept">
+  <style>
+    #nivaran-layout { --nv-bg:light-dark(#f6f7f3,#141d1c); --nv-surface:light-dark(#ffffff,#1d2927); --nv-ink:light-dark(#173c35,#e1eee9); --nv-muted:light-dark(#546a64,#a5bcb4); --nv-line:light-dark(#dbe4de,#3b4f48); --nv-action:light-dark(#136451,#8ad9bc); --nv-on:light-dark(#ffffff,#123b30); --nv-soft:light-dark(#e8f2eb,#293f35); --nv-warn:light-dark(#815514,#edc57e); font:16px/1.5 system-ui,sans-serif; color:var(--nv-ink); }
+    #nivaran-layout * { box-sizing:border-box; }
+    #nivaran-layout .nv-frame { max-width:410px; margin:0 auto; background:var(--nv-bg); border:1px solid var(--nv-line); border-radius:24px; overflow:hidden; }
+    #nivaran-layout .nv-demo { text-align:center; font-size:12px; padding:9px; color:var(--nv-muted); border-bottom:1px solid var(--nv-line); }
+    #nivaran-layout .nv-header { display:flex; align-items:center; gap:12px; padding:18px 20px 12px; }
+    #nivaran-layout .nv-brand { font-size:21px; font-weight:650; letter-spacing:-.5px; }
+    #nivaran-layout .nv-grow { flex:1; min-width:0; }
+    #nivaran-layout .nv-sub { color:var(--nv-muted); font-size:13px; }
+    #nivaran-layout h2 { font-size:27px; line-height:1.2; font-weight:600; letter-spacing:-.7px; margin:6px 0 14px; }
+    #nivaran-layout h3 { font-size:17px; font-weight:600; margin:0 0 8px; }
+    #nivaran-layout p { margin:0 0 12px; }
+    #nivaran-layout .nv-content { padding:12px 20px 20px; min-height:400px; }
+    #nivaran-layout button { font:inherit; cursor:pointer; color:inherit; }
+    #nivaran-layout .nv-button { min-height:46px; border-radius:12px; padding:10px 14px; border:1px solid var(--nv-line); background:var(--nv-surface); }
+    #nivaran-layout .nv-primary { background:var(--nv-action); color:var(--nv-on); border-color:transparent; width:100%; font-weight:600; }
+    #nivaran-layout .nv-quiet { background:transparent; border:0; min-height:44px; padding:8px; color:var(--nv-action); }
+    #nivaran-layout .nv-row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    #nivaran-layout .nv-section { margin:20px 0 10px; color:var(--nv-muted); font-size:13px; font-weight:600; }
+    #nivaran-layout .nv-case { display:block; text-align:left; width:100%; padding:17px; margin:10px 0; border:1px solid var(--nv-line); border-radius:16px; background:var(--nv-surface); }
+    #nivaran-layout .nv-case strong { display:block; font-size:17px; margin:9px 0 4px; }
+    #nivaran-layout .nv-case span { display:block; }
+    #nivaran-layout .nv-status { color:var(--nv-warn); font-size:12px; font-weight:650; }
+    #nivaran-layout .nv-good { color:var(--nv-action); }
+    #nivaran-layout .nv-callout { background:var(--nv-soft); padding:17px; border-radius:16px; margin-bottom:20px; }
+    #nivaran-layout .nv-nav { display:flex; border-top:1px solid var(--nv-line); background:var(--nv-surface); padding:8px 12px; }
+    #nivaran-layout .nv-nav button { flex:1; border:0; border-radius:10px; background:transparent; padding:11px 3px; font-size:14px; min-height:46px; }
+    #nivaran-layout .nv-nav button[aria-current="page"] { background:var(--nv-soft); color:var(--nv-action); font-weight:650; }
+    #nivaran-layout .nv-tabs { display:flex; padding:0 16px; border-bottom:1px solid var(--nv-line); }
+    #nivaran-layout .nv-tabs button { flex:1; background:transparent; border:0; border-bottom:2px solid transparent; font-size:13px; padding:12px 3px; min-height:46px; }
+    #nivaran-layout .nv-tabs button[aria-pressed="true"] { border-bottom-color:var(--nv-action); color:var(--nv-action); font-weight:600; }
+    #nivaran-layout .nv-fact { display:flow-root; border-bottom:1px solid var(--nv-line); padding:13px 0; }
+    #nivaran-layout .nv-fact small { display:block; color:var(--nv-muted); font-size:12px; margin-bottom:5px; }
+    #nivaran-layout .nv-fact button { float:right; }
+    #nivaran-layout .nv-chat { background:var(--nv-surface); border:1px solid var(--nv-line); border-radius:16px 16px 16px 3px; padding:14px; margin:13px 22px 13px 0; }
+    #nivaran-layout .nv-user { background:var(--nv-soft); border:0; margin:13px 0 13px 25px; border-radius:16px 16px 3px 16px; }
+    #nivaran-layout .nv-footer { padding:14px 20px 20px; background:var(--nv-surface); border-top:1px solid var(--nv-line); }
+    #nivaran-layout textarea,#nivaran-layout input[type="text"] { font:inherit; padding:12px; width:100%; color:var(--nv-ink); border:1px solid var(--nv-line); background:var(--nv-surface); border-radius:12px; }
+    #nivaran-layout textarea { min-height:88px; resize:vertical; }
+    #nivaran-layout .nv-label { display:block; margin:12px 0 6px; font-size:14px; }
+    #nivaran-layout .nv-timeline { border-left:2px solid var(--nv-line); margin:20px 0 0 7px; padding-left:18px; }
+    #nivaran-layout .nv-event { padding-bottom:20px; }
+    #nivaran-layout .nv-event small { display:block; color:var(--nv-muted); }
+    #nivaran-layout .nv-check { display:flex; align-items:flex-start; gap:10px; margin:18px 0; font-size:14px; }
+    #nivaran-layout .nv-check input { width:20px; height:20px; flex-shrink:0; }
+    #nivaran-layout .nv-voice { text-align:center; padding:30px 0; }
+    #nivaran-layout .nv-orb { background:var(--nv-soft); color:var(--nv-action); width:100px; height:100px; border-radius:50%; display:grid; place-items:center; margin:0 auto 22px; font-size:24px; }
+    #nivaran-layout button:disabled { opacity:.5; cursor:default; }
+    #nivaran-layout .nv-notice { color:var(--nv-muted); font-size:13px; margin-top:10px; }
+  </style>
+  <div class="nv-frame">
+    <div class="nv-demo">Design preview · fictional cases · no submissions</div>
+    <div id="nv-screen"></div>
+  </div>
+  <script>
+    (() => {
+      const root=document.getElementById('nivaran-layout');
+      const screen=root.querySelector('#nv-screen');
+      const state={view:'issues',tab:'overview',kind:'pf',note:'',file:'',confirmed:false,voice:false,paused:false,submitted:false,notice:'',edit:false,problem:'My PF transfer was rejected. I do not understand the reason.',outcome:'Explain the rejection and tell me what needs correcting.',layout:'issues',roomy:true};
+      const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      const cases={pf:{},passport:{problem:'My passport application has not progressed.',outcome:'Explain the current status and any action needed.',note:'',file:'',confirmed:false,submitted:false},new:{problem:'Not described yet.',outcome:'Not confirmed yet.',note:'',file:'',confirmed:false,submitted:false}};
+      const caseKeys=['problem','outcome','note','file','confirmed','submitted'];
+      const authority=()=>state.kind==='pf'?'EPFO · Labour and Employment':state.kind==='passport'?'Passport issuing authority · Needs confirmation':'Not proposed yet';
+      const button=(text,action,cls='nv-button')=>`<button type="button" class="${cls}" data-action="${action}">${text}</button>`;
+      const title=()=>state.kind==='passport'?'Passport application delayed':state.kind==='new'?'New issue':'PF transfer rejected';
+      const nav=active=>`<nav class="nv-nav" aria-label="Main navigation">${['issues','updates','profile'].map(x=>`<button type="button" data-action="${x}" ${active===x?'aria-current="page"':''}>${x[0].toUpperCase()+x.slice(1)}</button>`).join('')}</nav>`;
+      const header=(name,back=false)=>`<header class="nv-header">${back?button('←','issues','nv-quiet'):''}<div class="nv-grow"><div class="nv-brand">${esc(name)}</div>${back?'<div class="nv-sub">Sample case workspace</div>':'<div class="nv-sub">One place for every issue</div>'}</div></header>`;
+      const tabs=()=>`<nav class="nv-tabs" aria-label="Case sections">${[['overview','Overview'],['chat','Conversation'],['docs','Documents']].map(([id,label])=>`<button type="button" data-action="${id}" aria-pressed="${state.tab===id}">${label}</button>`).join('')}</nav>`;
+      function render(){
+        root.style.setProperty('--nv-space',state.roomy?'20px':'14px');
+        let html=''; const pf=state.kind==='pf'?state:cases.pf;
+        if(state.view==='issues'){
+          html=header('Nivaran')+`<main class="nv-content"><h2>Your issues</h2>${state.layout==='conversation'?`<div class="nv-callout"><h3>What happened?</h3><p>Speak or type. We’ll help organise the details.</p>${button('Start a conversation','new','nv-button nv-primary')}</div>`:''}<div class="nv-section">NEEDS YOUR ATTENTION</div><button class="nv-case" data-action="pf"><span class="nv-status">${pf.submitted?'Preview submitted':pf.file?'Ready for your review':'Draft · Add evidence'}</span><strong>PF transfer rejected</strong><span class="nv-sub">${pf.file?'Review the facts and proposed destination.':'Add the rejection message, or continue without it.'}</span></button><div class="nv-section">OTHER ISSUES</div><button class="nv-case" data-action="passport"><span class="nv-status nv-good">Action requested</span><strong>Passport application delayed</strong><span class="nv-sub">A sample officer response needs your attention.</span></button></main>`+`<div class="nv-footer">${button('+ Start a new issue','new','nv-button nv-primary')}</div>`+nav('issues');
+        }else if(state.view==='updates'){
+          html=header('Updates')+`<main class="nv-content"><div class="nv-section">ACTION REQUESTED</div><button class="nv-case" data-action="passport"><span class="nv-status">Passport application delayed</span><strong>Additional information requested</strong><span class="nv-sub">Open the case to read the request and next step.</span></button><p class="nv-notice">Sample update for exploring the layout.</p></main>`+nav('updates');
+        }else if(state.view==='profile'){
+          html=header('Profile')+`<main class="nv-content"><div class="nv-fact"><h3>Your reusable details</h3><p class="nv-sub">Name, contact information and address belong here. Confirm them before sending a complaint.</p></div><div class="nv-fact"><h3>Language and voice</h3><p class="nv-sub">Language, read-aloud and audio preferences. This preview uses English.</p></div><div class="nv-fact"><h3>Privacy and draft storage</h3><p class="nv-sub">Control saved cases, device storage and account sync.</p></div><div class="nv-fact"><h3>Help and notifications</h3><p class="nv-sub">Support and update preferences.</p></div></main>`+nav('profile');
+        }else if(state.voice){
+          html=header(title(),true)+`<main class="nv-content"><div class="nv-voice"><div class="nv-orb">${state.paused?'Ⅱ':'•••'}</div><h2>${state.paused?'Paused':'Voice conversation'}</h2><p class="nv-sub">Preview only · microphone is off</p></div><div class="nv-chat">Tell me what happened. You can pause or switch to typing at any time.</div><div class="nv-section">TRANSCRIPT APPEARS HERE</div><p>Review the words before they become confirmed complaint details.</p></main><div class="nv-footer"><div class="nv-row">${button(state.paused?'Resume preview':'Pause preview','pause')}${button('Switch to typing','type')}</div></div>`;
+        }else if(state.view==='review'){
+          html=header('Review complaint',true)+`<main class="nv-content"><span class="nv-status">Draft · Not submitted</span><div class="nv-fact">${button('Edit','overview','nv-quiet')}<small>PROPOSED AUTHORITY</small><strong>${authority()}</strong><p class="nv-sub">Handling office still needs confirmation.</p></div><div class="nv-fact">${button('Edit','edit','nv-quiet')}<small>WHAT HAPPENED</small>${esc(state.problem)}<small style="margin-top:12px">REQUESTED OUTCOME</small>${esc(state.outcome)}</div><div class="nv-fact">${button('Edit','docs','nv-quiet')}<small>DOCUMENTS</small>${state.file?esc(state.file):'No evidence attached'}</div><p class="nv-notice">A real submission also requires verified routing and sender details. This is a layout demonstration.</p><label class="nv-check"><input id="nv-consent" type="checkbox" ${state.confirmed?'checked':''}>I have reviewed this sample complaint.</label></main><div class="nv-footer"><button class="nv-button nv-primary" data-action="receipt" ${state.confirmed?'':'disabled'}>Preview acknowledgement</button></div>`;
+        }else if(state.view==='receipt'){
+          html=header(title(),true)+`<main class="nv-content"><div class="nv-callout"><span class="nv-status nv-good">SIMULATED ACKNOWLEDGEMENT</span><h2>Complaint received</h2><p>Sample reference: SIM-1042</p><p class="nv-sub">Nothing was sent to a government authority.</p></div><h3>What happens next</h3><p>Your case overview would show progress and requests for information.</p><div class="nv-timeline"><div class="nv-event"><strong>Submitted</strong><small>Example timeline entry</small></div><div class="nv-event"><strong>Awaiting review</strong><small>No action requested in this example</small></div></div></main><div class="nv-footer">${button('Back to issues','issues','nv-button nv-primary')}</div>`;
+        }else{
+          html=header(title(),true)+tabs();
+          if(state.kind==='passport'&&state.tab==='overview'){
+            html+=`<main class="nv-content"><div class="nv-callout"><span class="nv-status">ACTION REQUESTED · SAMPLE</span><h3>Read the officer’s request</h3><p>Please provide the date of your appointment and the latest application status.</p>${button('Prepare a reply','chat')}</div><h3>What this means</h3><p>More information has been requested. This does not mean your passport has been issued.</p><div class="nv-timeline"><div class="nv-event"><strong>Information requested</strong><small>Sample officer response</small></div><div class="nv-event"><strong>Complaint received</strong><small>Sample earlier event</small></div></div></main>`;
+          }else if(state.kind==='new'&&state.tab==='overview'){ html+=`<main class="nv-content"><div class="nv-callout"><h3>Tell us what happened</h3><p>We will confirm the problem and requested outcome before proposing an authority.</p>${button('Continue conversation','chat')}</div><h3>Your notes</h3><p>${esc(state.note||'No details added yet.')}</p></main>`; }else if(state.tab==='chat'){
+            html+=`<main class="nv-content"><div class="nv-sub">${state.kind==='new'?'Explain the issue in your own words.':'Your conversation stays with this issue.'}</div>${state.kind==='pf'?`<div class="nv-chat nv-user">${esc(state.problem)}</div><div class="nv-chat">Do you have the rejection message? It may explain what needs correcting.</div><div class="nv-row">${button('Add the message','docs')}${button('I don’t have it','unknown')}</div>`:`<div class="nv-chat">${state.kind==='passport'?'What appointment date and application status would you like to include in your reply?':'What happened, and what would you like the authority to do?'}</div>`}${state.note?`<div class="nv-chat nv-user">${esc(state.note)}</div><p class="nv-notice">Added to the sample notes. No AI processing runs in this preview.</p>`:''}${state.notice?`<p class="nv-notice" role="status">${esc(state.notice)}</p>`:''}</main><div class="nv-footer"><label class="nv-label" for="nv-message">Your message</label><textarea id="nv-message" placeholder="Type here…"></textarea><div class="nv-row" style="margin-top:10px">${button('Speak','voice')}${button('Add document','docs')}${button('Add note','send')}</div></div>`;
+          }else if(state.tab==='docs'){
+            html+=`<main class="nv-content"><h3>Evidence for this issue</h3><p class="nv-sub">Add what helps explain your problem. You can return later.</p><div class="nv-section">HELPFUL EVIDENCE</div><div class="nv-case"><span class="nv-status">${state.file?'Selected in preview':'Not added'}</span><strong>${state.kind==='passport'?'Application status screenshot':state.kind==='new'?'Supporting document':'Rejection message'}</strong><p class="nv-sub">${state.kind==='passport'?'Helps show the current application status.':state.kind==='new'?'We will identify relevant evidence after understanding the issue.':'Helps identify why the transfer was rejected.'}</p>${state.file?`<p>${esc(state.file)}</p><p class="nv-notice">Contents have not been checked or uploaded.</p>${button('Remove','remove')}`:`<label class="nv-label" for="nv-file">Choose an image or document</label><input id="nv-file" type="file" accept="image/*,application/pdf" style="max-width:100%;font-size:14px">`}</div><details><summary>I don’t have this document</summary><p class="nv-notice">Look for the rejection response in your account or messages. Keep the reason marked unknown if you cannot find it.</p></details></main><div class="nv-footer">${button('Review draft','review','nv-button nv-primary')}</div>`;
+          }else{
+            html+=`<main class="nv-content"><div class="nv-callout"><span class="nv-status">YOUR NEXT STEP</span><h3>${state.file?'Review your complaint':'Add the rejection message'}</h3><p class="nv-sub">${state.file?'Check the facts and proposed destination.':'It can help explain the rejection. You can also continue with the reason unknown.'}</p>${button(state.file?'Review draft':'View documents',state.file?'review':'docs')}</div>${state.edit?`<label class="nv-label" for="nv-problem">What happened?</label><textarea id="nv-problem">${esc(state.problem)}</textarea><label class="nv-label" for="nv-outcome">What would resolve it?</label><textarea id="nv-outcome">${esc(state.outcome)}</textarea>${button('Save sample changes','save')}`:`<div class="nv-fact">${button('Edit','edit','nv-quiet')}<small>WHAT HAPPENED</small><p>${esc(state.problem)}</p></div><div class="nv-fact"><small>WHAT YOU WANT</small><p>${esc(state.outcome)}</p></div>`}<div class="nv-fact"><small>PROPOSED AUTHORITY</small><strong>${authority()}</strong><p class="nv-sub">Confirm the responsible service and handling office before submitting.</p>${button('Ask about the destination','routing','nv-quiet')}</div>${state.note?`<div class="nv-fact"><small>ADDITIONAL NOTES · NOT CONFIRMED</small>${esc(state.note)}</div>`:''}</main><div class="nv-footer">${button('Continue conversation','chat','nv-button nv-primary')}</div>`;
+          }
+        }
+        screen.innerHTML=html;
+        if(!state.roomy)screen.querySelectorAll('.nv-content').forEach(e=>e.style.padding='10px 16px 16px');
+      }
+      root.addEventListener('click',e=>{
+        const b=e.target.closest('[data-action]');if(!b)return;const a=b.dataset.action;
+        if(['issues','updates','profile'].includes(a)){state.view=a;state.voice=false;}
+        else if(['pf','passport','new'].includes(a)){cases[state.kind]=Object.fromEntries(caseKeys.map(k=>[k,state[k]]));Object.assign(state,cases[a]);state.kind=a;state.view='case';state.tab=a==='new'?'chat':'overview';state.notice='';state.voice=false;state.edit=false;}
+        else if(['overview','chat','docs'].includes(a)){state.view='case';state.tab=a;state.edit=false;}
+        else if(a==='voice'){state.voice=true;state.paused=false;}
+        else if(a==='type'){state.voice=false;state.tab='chat';}
+        else if(a==='pause')state.paused=!state.paused;
+        else if(a==='unknown')state.notice='Rejection reason remains unknown. You can continue preparing your account of the problem.';
+        else if(a==='send'){const value=root.querySelector('#nv-message').value.trim();if(!value)return;state.note=value;state.confirmed=false;}
+        else if(a==='routing'){state.tab='chat';state.notice='Office remains unconfirmed. A verified flow would help identify the handling office before submission.';}
+        else if(a==='edit'){state.view='case';state.tab='overview';state.edit=true;}
+        else if(a==='save'){state.problem=root.querySelector('#nv-problem').value;state.outcome=root.querySelector('#nv-outcome').value;state.edit=false;state.confirmed=false;}
+        else if(a==='review'){state.view='review';state.confirmed=false;}
+        else if(a==='receipt'){state.view='receipt';state.submitted=true;}
+        else if(a==='remove'){state.file='';state.confirmed=false;}
+        render();
+      });
+      root.addEventListener('change',e=>{if(e.target.id==='nv-consent'){state.confirmed=e.target.checked;root.querySelector('[data-action="receipt"]').disabled=!state.confirmed;}if(e.target.id==='nv-file'){state.file=e.target.files[0]?.name||'';state.confirmed=false;render();}});
+      render();
+      if(globalThis.Tweak){const tweak=new Tweak({container:root,onChange:render});tweak.addSelect(state,'layout',{label:'Landing emphasis',options:[{label:'Saved issues first',value:'issues'},{label:'Conversation first',value:'conversation'}]});tweak.addToggle(state,'roomy',{label:'Roomier spacing'});}
+    })();
+  </script>
+</div>
