@@ -10,7 +10,6 @@ import {
   ShieldCheck,
   RefreshCw,
   ArrowRight,
-  ArrowUpRight,
   ArrowUpCircle,
   MessageCircle,
   Paperclip,
@@ -20,16 +19,12 @@ import {
   Users,
   CheckCircle2,
   XCircle,
-  Send,
   Menu,
   X,
-  Droplet,
-  Construction,
-  Headset,
 } from "lucide-react";
 import AgentPanel, { Mark } from "../components/AgentPanel";
 import ThemeToggle from "../components/ThemeToggle";
-import RadialProgress from "../components/RadialProgress";
+import HomeHero from "../components/HomeHero";
 
 // Calm scroll reveal: fade + tiny rise once ~15% visible, staggered via --d.
 function Reveal({ children, delay = 0, className = "" }) {
@@ -63,13 +58,6 @@ function Reveal({ children, delay = 0, className = "" }) {
     </div>
   );
 }
-
-const PROCESS_WORDS = [
-  { label: "Tell", accent: "bg-saffron" },
-  { label: "Understand", accent: "bg-forest" },
-  { label: "Route", accent: "bg-forest" },
-  { label: "Resolve", accent: "bg-saffron" },
-];
 
 const FEATURES = [
   {
@@ -172,6 +160,9 @@ const NAV_LINKS = [
 export default function Home() {
   const [botOpen, setBotOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // The hero can hand a typed sentence straight into the agent popup.
+  const [heroPrompt, setHeroPrompt] = useState("");
+  function startFromHero(text = "") { setHeroPrompt(text); setBotOpen(true); }
 
   return (
     <div className="min-h-screen flex flex-col bg-paper">
@@ -255,83 +246,8 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        {/* hero */}
-        <section className="relative overflow-hidden hero-texture">
-          <img
-            src="/bg/parliament-hero.png"
-            alt=""
-            aria-hidden="true"
-            className="hero-photo absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-            draggable={false}
-          />
-          <div className="hero-photo-scrim absolute inset-0 pointer-events-none" aria-hidden="true" />
-          <div className="relative max-w-6xl mx-auto px-4 pt-14 sm:pt-16 pb-20 sm:pb-24 grid lg:grid-cols-[1fr_1.08fr] gap-10 lg:gap-14 items-center">
-            <div>
-              <Reveal delay={0}>
-                <span className="inline-flex items-center gap-1.5 h-[28px] rounded-full bg-card border border-line pl-2.5 pr-3 text-[12.5px] font-medium text-inksoft shadow-card">
-                  <span className="w-1.5 h-1.5 rounded-full bg-saffron" aria-hidden="true" />
-                  Your AI companion for public grievances
-                </span>
-              </Reveal>
-              <Reveal delay={60}>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-4 text-[11px] font-semibold tracking-[0.14em] uppercase text-mutedink">
-                  {PROCESS_WORDS.map((w) => (
-                    <span key={w.label} className="inline-flex items-center gap-1.5">
-                      <span className={`w-1.5 h-1.5 ${w.accent}`} aria-hidden="true" /> {w.label}
-                    </span>
-                  ))}
-                </div>
-              </Reveal>
-              <Reveal delay={120}>
-                <h1 className="font-display font-extrabold tracking-[-0.02em] text-[38px] sm:text-[52px] leading-[1.08] text-ink mt-3 [text-wrap:balance]">
-                  Your grievance,{" "}
-                  <span className="text-forest">understood</span> —<br className="hidden sm:block" /> not just{" "}
-                  <span className="text-saffrondeep">filed</span>.
-                </h1>
-              </Reveal>
-              <Reveal delay={240}>
-                <p className="text-inksoft text-[17px] leading-relaxed max-w-[540px] mt-4">
-                  Filing a complaint shouldn't mean navigating complicated government categories and figuring out
-                  the right department yourself. Nivaran uses AI to understand your problem, draft your grievance,
-                  route it to the right authority, and help you track it.
-                </p>
-              </Reveal>
-              <Reveal delay={360}>
-                <div className="flex flex-wrap items-center gap-3 mt-6">
-                  <button
-                    onClick={() => setBotOpen(true)}
-                    className="btn-tactile h-11 px-5 flex items-center gap-1.5 bg-forest hover:bg-forestdeep text-white font-semibold text-sm rounded-full transition-colors shadow-card hover:shadow-elevated"
-                  >
-                    Talk to Nivaran <ArrowRight size={14} />
-                  </button>
-                  <Link
-                    href="/login"
-                    className="btn-tactile h-11 px-5 flex items-center gap-1.5 text-forest border-[1.5px] border-forest/35 hover:border-forest/60 hover:bg-forestwash font-semibold text-sm rounded-full transition-colors"
-                  >
-                    Open the portal <ArrowUpRight size={14} />
-                  </Link>
-                </div>
-              </Reveal>
-              <Reveal delay={480}>
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-6 text-[13px] text-inksoft">
-                  {["AI-powered routing", "Secure & private", "Human oversight", "Always available"].map((t) => (
-                    <span key={t} className="inline-flex items-center gap-1.5">
-                      <CheckCircle2 size={14} className="text-forest" /> {t}
-                    </span>
-                  ))}
-                </div>
-                <p className="text-[11px] text-mutedink mt-3">
-                  For judges — demo access: <code className="text-[10.5px]">citizen@demo.in / nivaran123</code>{" "}
-                  (mock data, live agent)
-                </p>
-              </Reveal>
-            </div>
-
-            <Reveal delay={300}>
-              <HeroMock />
-            </Reveal>
-          </div>
-        </section>
+        {/* hero: this repo's Figma hero, headerless because the sticky navbar above already carries the brand and links */}
+        <HomeHero onStart={startFromHero} showHeader={false} />
 
         {/* dark-green trust band */}
         <section className="bg-forest-section">
@@ -570,80 +486,9 @@ export default function Home() {
           already gives constant access without a persistent widget. */}
       {botOpen && (
         <div className="widget-in fixed z-50 bottom-4 right-4 left-4 sm:left-auto sm:bottom-6 sm:right-6 w-auto sm:w-[min(940px,calc(100vw-3rem))] h-[min(640px,calc(100vh-5rem))]">
-          <AgentPanel variant="popup" onClose={() => setBotOpen(false)} />
+          <AgentPanel variant="popup" initialInput={heroPrompt} onClose={() => { setBotOpen(false); setHeroPrompt(""); }} />
         </div>
       )}
-    </div>
-  );
-}
-
-const HERO_QUICK_REPLIES = [
-  { icon: <Droplet size={14} />, label: "Water supply issue" },
-  { icon: <Construction size={14} />, label: "Road / infrastructure damage" },
-  { icon: <Clock3 size={14} />, label: "Track my complaint" },
-  { icon: <Headset size={14} />, label: "Talk to a human agent" },
-];
-
-// ---- hero visual: a light product mockup — chat + live status card — in
-// place of a screenshot or any 3D product shot. Pure markup, no images.
-function HeroMock() {
-  return (
-    <div className="relative max-w-[30rem] mx-auto lg:mx-0 lg:ml-auto">
-      <div className="bg-card border-[1.5px] border-line rounded-[28px] shadow-elevated overflow-hidden">
-        <div className="flex items-center gap-3 px-5 py-4 bg-forest">
-          <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0">
-            <Mark size={22} />
-          </span>
-          <div className="flex-1">
-            <p className="text-[15px] font-bold text-white leading-tight">Nivaran AI</p>
-            <p className="text-[11.5px] text-white/80 leading-tight flex items-center gap-1.5 mt-0.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-white inline-block" /> Online now
-            </p>
-          </div>
-          <span className="text-[10.5px] font-semibold uppercase tracking-wider text-white bg-white/15 border border-white/25 rounded-full px-2.5 py-1">
-            Live agent
-          </span>
-        </div>
-        <div className="p-5 flex flex-col gap-2.5">
-          <p className="text-[14.5px] font-medium text-inksoft mb-0.5">Namaste! Kaise madad karun aaj?</p>
-          {HERO_QUICK_REPLIES.map((r) => (
-            <div
-              key={r.label}
-              className="flex items-center gap-3 text-left text-[14px] font-medium text-ink bg-mist rounded-xl px-3.5 py-3"
-            >
-              <span className="w-7 h-7 rounded-full bg-card text-forest flex items-center justify-center shrink-0">
-                {r.icon}
-              </span>
-              {r.label}
-            </div>
-          ))}
-          <div className="flex items-center gap-2 mt-1.5 bg-card border border-line rounded-full pl-4 pr-1.5 py-1.5">
-            <span className="text-[13px] text-mutedink flex-1">Type your message…</span>
-            <span className="w-9 h-9 rounded-full bg-forest text-white flex items-center justify-center shrink-0">
-              <Send size={14} />
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* floating status card */}
-      <div className="hidden sm:flex absolute -top-6 -right-7 items-center gap-3 bg-card border border-line rounded-2xl shadow-elevated pl-3.5 pr-4 py-3.5">
-        <RadialProgress value={9 / 21} size={40} strokeWidth={4.5} color="#123f2e" track="rgba(22,31,26,0.08)">
-          <span className="text-[9.5px] font-bold text-forest">9/21</span>
-        </RadialProgress>
-        <div>
-          <p className="text-[12px] font-semibold text-ink leading-tight">CG-2024-8891</p>
-          <p className="text-[11px] text-mutedink leading-tight mt-0.5">Day 9 · In progress</p>
-        </div>
-      </div>
-
-      {/* trust badge */}
-      <div className="hidden sm:flex absolute -bottom-6 -left-8 items-center gap-2.5 bg-card border border-line rounded-2xl shadow-card pl-3 pr-5 py-3">
-        <span className="w-8 h-8 rounded-full bg-saffronwash text-saffrondeep flex items-center justify-center shrink-0">
-          <FileCheck2 size={16} />
-        </span>
-        <p className="text-[12.5px] font-semibold text-ink leading-tight">Appeal drafted<br />automatically</p>
-      </div>
     </div>
   );
 }
