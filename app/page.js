@@ -20,11 +20,13 @@ import {
   CheckCircle2,
   XCircle,
   Menu,
+  Smartphone,
   X,
 } from "lucide-react";
 import AgentPanel, { Mark } from "../components/AgentPanel";
 import ThemeToggle from "../components/ThemeToggle";
 import HomeHero from "../components/HomeHero";
+import AppDownloadDialog from "../components/AppDownloadDialog";
 
 // Calm scroll reveal: fade + tiny rise once ~15% visible, staggered via --d.
 function Reveal({ children, delay = 0, className = "" }) {
@@ -160,6 +162,18 @@ const NAV_LINKS = [
 export default function Home() {
   const [botOpen, setBotOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // Android download popup: opens once per browser session, and from the "Get the app" buttons any time.
+  const [appOpen, setAppOpen] = useState(false);
+  useEffect(() => {
+    let seen = false;
+    try { seen = sessionStorage.getItem("nivaran-app-popup") === "1"; } catch (e) {}
+    if (seen) return;
+    const timer = setTimeout(() => {
+      setAppOpen(true);
+      try { sessionStorage.setItem("nivaran-app-popup", "1"); } catch (e) {}
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
   // The hero can hand a typed sentence straight into the agent popup.
   const [heroPrompt, setHeroPrompt] = useState("");
   function startFromHero(text = "") { setHeroPrompt(text); setBotOpen(true); }
@@ -189,6 +203,12 @@ export default function Home() {
           </nav>
           <div className="ml-auto md:ml-0 flex items-center gap-2">
             <ThemeToggle />
+            <button
+              onClick={() => setAppOpen(true)}
+              className="btn-tactile hidden sm:flex items-center gap-1.5 text-sm font-medium text-forest hover:text-forestdeep px-3 py-2 transition-colors"
+            >
+              <Smartphone size={15} /> Get the app
+            </button>
             <Link
               href="/login"
               className="btn-tactile hidden sm:flex items-center text-sm font-medium text-inksoft hover:text-ink px-3 py-2 transition-colors"
@@ -223,6 +243,12 @@ export default function Home() {
                 {l.label}
               </a>
             ))}
+            <button
+              onClick={() => { setMenuOpen(false); setAppOpen(true); }}
+              className="flex items-center gap-2 px-2 py-2.5 rounded-lg text-[15px] font-medium text-forest hover:bg-mist hover:text-forestdeep transition-colors text-left"
+            >
+              <Smartphone size={16} /> Get the Android app
+            </button>
             <div className="flex items-center gap-2 mt-2 pt-2 border-t border-line">
               <Link
                 href="/login"
@@ -452,6 +478,9 @@ export default function Home() {
             <button onClick={() => setBotOpen(true)} className="text-left text-sm text-inksoft hover:text-forest transition-colors">
               Talk to Nivaran
             </button>
+            <button onClick={() => setAppOpen(true)} className="text-left text-sm text-inksoft hover:text-forest transition-colors">
+              Android app
+            </button>
           </div>
 
           <div className="flex flex-col gap-3">
@@ -484,6 +513,8 @@ export default function Home() {
       {/* agent popup — opened from the hero, navbar, or CTA banner. No
           separate floating launcher: the sticky navbar's "Get Started"
           already gives constant access without a persistent widget. */}
+      <AppDownloadDialog open={appOpen} onClose={() => setAppOpen(false)} />
+
       {botOpen && (
         <div className="widget-in fixed z-50 bottom-4 right-4 left-4 sm:left-auto sm:bottom-6 sm:right-6 w-auto sm:w-[min(940px,calc(100vw-3rem))] h-[min(640px,calc(100vh-5rem))]">
           <AgentPanel variant="popup" initialInput={heroPrompt} onClose={() => { setBotOpen(false); setHeroPrompt(""); }} />

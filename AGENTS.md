@@ -16,6 +16,7 @@ Grievance-preparation prototype for Build What Moves India. One synthetic journe
 - Expo Go works for everything except gapless voice playback; `src/voice/audio.native.ts` falls back to one WAV per reply when the playback module is missing. Start with `npx expo start` (no `--dev-client`) and open `exp://127.0.0.1:8081` on the phone via `adb shell am start -a android.intent.action.VIEW -d exp://127.0.0.1:8081`.
 - Native Android builds on this PC must use the SDK through the junction `C:\AndroidSdk` (`sdk.dir` in `mobile/android/local.properties`). The real SDK path contains a space, which makes CMake invoke the compiler as `CLANG_~1` and every C++ link fails with missing libc++ symbols. Delete the `.cxx` folders after changing the SDK path.
 - Web export: `cd mobile && npm run export:web` writes `public/app/`; commit it, then deploy the root with Vercel. Environment keys are listed in `.env.example`. A running `next start` keeps its list of `public/` files from startup, so restart it after every export or the new bundle path falls through to `index.html` and the app never mounts.
+- Android APK for the site's download popup: `cd mobile && npx eas-cli build --platform android --profile preview` builds in Expo's cloud, since a local Gradle build needs several GB this PC rarely has; the keystore and the demo code (`EXPO_PUBLIC_DEMO_KEY`) live on EAS in the `preview` environment. Publish the file as a GitHub release asset named `nivaran.apk`; the site's `/nivaran.apk` redirect always serves the newest release.
 
 ## Rules that are not visible from the code
 
