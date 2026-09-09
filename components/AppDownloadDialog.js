@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { Download, Globe, Smartphone, X } from "lucide-react";
 
 // The download link goes through /nivaran.apk, a redirect in next.config.mjs to the newest GitHub
 // release asset, so shipping a new APK never needs a site change. public/app-qr.svg encodes the same link.
+// The web app link is a plain anchor: /app is a static export, so a Next Link would prefetch a route that 404s.
 export const APK_PATH = "/nivaran.apk";
 export const APP_VERSION = "0.1.0";
 
@@ -73,13 +73,13 @@ export default function AppDownloadDialog({ open, onClose }) {
           >
             <Download size={16} /> Download the APK
           </a>
-          <Link
+          <a
             href="/app"
             onClick={onClose}
             className="btn-tactile inline-flex items-center justify-center gap-2 border border-line text-ink text-sm font-semibold rounded-full px-5 py-3 hover:bg-mist transition-colors"
           >
             <Globe size={16} /> Open in the browser
-          </Link>
+          </a>
         </div>
 
         <p className="text-xs text-mutedink leading-relaxed mt-4">
